@@ -1,0 +1,16 @@
+[
+{
+  "modid": "frpg",
+  "name": "firstrpg",
+  "description": "wonderful rpg mod for minecraft by huangdaxian",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/huangluyu/",
+  "updateUrl": "",
+  "authorList": ["huangdaxian"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

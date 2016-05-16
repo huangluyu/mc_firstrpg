@@ -1,0 +1,29 @@
+item.money.name=money
+
+tile.testBlock.name=testBlock
+
+itemGroup.tabFMLTutor=FirstRPG
+
+item.redstonePickaxe.name=RedstonePickaxe
+
+item.redstoneApple.name=Redstone Apple
+
+item.redstoneHelmet.name=Redstone Helmet
+item.redstoneChestplate.name=Redstone Chestplate
+item.redstoneLeggings.name=Redstone Leggings
+item.redstoneBoots.name=Redstone Boots
+
+death.attack.byPig=%s was dead because of a pig! 
+
+enchantment.fireBurn=Fire Burning
+
+potion.fallProtection=Fall Protection
+
+key.frpg.showTime=Show Time
+
+key.categories.frpg=First RPG
+
+chat.fmltutor.time=The total world time is: %s.
+
+achievement.frpg.worseThanPig=Worse Than Pig
+achievement.frpg.worseThanPig.desc=Die from inappropriate food for the pig

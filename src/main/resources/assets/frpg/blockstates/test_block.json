@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "frpg:test_block" }
+    }
+}
