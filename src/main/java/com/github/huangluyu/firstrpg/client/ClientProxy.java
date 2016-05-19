@@ -1,5 +1,6 @@
 package com.github.huangluyu.firstrpg.client;
 
+import com.github.huangluyu.firstrpg.client.entity.EntityRenderLoader;
 import com.github.huangluyu.firstrpg.common.CommonProxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,6 +20,7 @@ public class ClientProxy extends CommonProxy
     {
         super.init(event);
         new ItemRenderLoader();
+        new EntityRenderLoader();
         new KeyLoader();
     }
 

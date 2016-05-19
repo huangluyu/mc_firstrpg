@@ -23,7 +23,16 @@ key.frpg.showTime=Show Time
 
 key.categories.frpg=First RPG
 
-chat.fmltutor.time=The total world time is: %s.
+chat.frpg.time=The total world time is: %s.
 
 achievement.frpg.worseThanPig=Worse Than Pig
 achievement.frpg.worseThanPig.desc=Die from inappropriate food for the pig
+
+achievement.frpg.worseThanPig=Worse Than Pig
+achievement.frpg.worseThanPig.desc=Die from inappropriate food for the pig
+achievement.frpg.buildGrassBlock=Grass Block
+achievement.frpg.buildGrassBlock.desc=Build a grass block
+achievement.frpg.explosionFromGrassBlock=Grass Block Explosion
+achievement.frpg.explosionFromGrassBlock.desc=Make an explosion of grass block by the click
+
+entity.GoldenChicken.name=Golden Chicken

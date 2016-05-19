@@ -4,9 +4,10 @@ import com.github.huangluyu.firstrpg.block.BlockLoader;
 import com.github.huangluyu.firstrpg.crafting.CraftingLoader;
 import com.github.huangluyu.firstrpg.creativetab.CreativeTabsLoader;
 import com.github.huangluyu.firstrpg.enchantment.EnchantmentLoader;
+import com.github.huangluyu.firstrpg.entity.EntityLoader;
 import com.github.huangluyu.firstrpg.item.ItemLoader;
 import com.github.huangluyu.firstrpg.potion.PotionLoader;
-import com.github.huangluyu.frpg.achievement.AchievementLoader;
+import com.github.huangluyu.firstrpg.achievement.AchievementLoader;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -28,6 +29,7 @@ public class CommonProxy {
     	new EnchantmentLoader();
     	new AchievementLoader();
     	new EventLoader();
+    	new EntityLoader();
     }
 
     public void postInit(FMLPostInitializationEvent event)

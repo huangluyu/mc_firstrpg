@@ -23,7 +23,16 @@ key.frpg.showTime=显示时间
 
 key.categories.frpg=第一个RPG
 
-chat.fmltutor.time=现在时间为： %s 。
+chat.frpg.time=现在时间为： %s 。
 
 achievement.frpg.worseThanPig=人不如猪
 achievement.frpg.worseThanPig.desc=因为提供给猪错误的饲料而死
+
+achievement.frpg.worseThanPig=人不如猪
+achievement.frpg.worseThanPig.desc=因为提供给猪错误的饲料而死
+achievement.frpg.buildGrassBlock=草块
+achievement.frpg.buildGrassBlock.desc=制作一个草块
+achievement.frpg.explosionFromGrassBlock=草块爆炸
+achievement.frpg.explosionFromGrassBlock.desc=通过点击草块使草块爆炸
+
+entity.GoldenChicken.name=金鸡

@@ -1,16 +1,22 @@
 package com.github.huangluyu.firstrpg.common;
 
+import com.github.huangluyu.firstrpg.achievement.AchievementLoader;
+import com.github.huangluyu.firstrpg.block.BlockLoader;
 import com.github.huangluyu.firstrpg.client.KeyLoader;
 import com.github.huangluyu.firstrpg.enchantment.EnchantmentLoader;
+import com.github.huangluyu.firstrpg.entity.EntityGoldenChicken;
+import com.github.huangluyu.firstrpg.item.ItemLoader;
 import com.github.huangluyu.firstrpg.potion.PotionLoader;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.potion.PotionEffect;
@@ -21,6 +27,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -132,11 +139,24 @@ public class EventLoader
     @SubscribeEvent
     public void onPlayerClickGrassBlock(PlayerClickGrassBlockEvent event)
     {
-        if (!event.world.isRemote && event.entityPlayer.getHeldItem() == null)
+    	if (!event.world.isRemote)
         {
-            BlockPos pos = event.pos;
-            event.world.spawnEntityInWorld(
-                    new EntityTNTPrimed(event.world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, null));
+            ItemStack heldItem = event.entityPlayer.getHeldItem();
+            if (heldItem == null)
+            {
+                BlockPos pos = event.pos;
+                event.world.spawnEntityInWorld(
+                        new EntityTNTPrimed(event.world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, null));
+                event.entityPlayer.triggerAchievement(AchievementLoader.explosionFromGrassBlock);
+            }
+            else if (ItemLoader.money.equals(heldItem.getItem()))
+            {
+                EntityLiving entityLiving = new EntityGoldenChicken(event.world);
+                BlockPos pos = event.pos;
+                entityLiving.setPositionAndUpdate(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
+                --heldItem.stackSize;
+                event.world.spawnEntityInWorld(entityLiving);
+            }
         }
     }
     
@@ -170,8 +190,26 @@ public class EventLoader
         {
             EntityPlayer player = Minecraft.getMinecraft().thePlayer;
             World world = Minecraft.getMinecraft().theWorld;
-            player.addChatMessage(new ChatComponentTranslation("chat.fmltutor.time", world.getTotalWorldTime()));
+            player.addChatMessage(new ChatComponentTranslation("chat.frpg.time", world.getTotalWorldTime()));
         }
 
+    }
+    
+    @SubscribeEvent
+    public void onLivingDeath(LivingDeathEvent event)
+    {
+        if (event.entityLiving instanceof EntityPlayer && event.source.getDamageType().equals("byPig"))
+        {
+            ((EntityPlayer) event.entityLiving).triggerAchievement(AchievementLoader.worseThanPig);
+        }
+    }
+
+    @SubscribeEvent
+    public void onPlayerItemCrafted(PlayerEvent.ItemCraftedEvent event)
+    {
+        if (event.crafting.getItem() == Item.getItemFromBlock(BlockLoader.testBlock))
+        {
+            event.player.triggerAchievement(AchievementLoader.buildGrassBlock);
+        }
     }
 }
