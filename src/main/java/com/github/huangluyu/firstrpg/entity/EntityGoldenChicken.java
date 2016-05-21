@@ -25,6 +25,7 @@ public class EntityGoldenChicken extends EntityChicken
         this.tasks.addTask(8, new AIStackBlock(this));
     }
 
+	//Ã¿tick¸üÐÂ
     @Override
     public void onLivingUpdate()
     {

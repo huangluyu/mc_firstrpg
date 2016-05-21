@@ -36,3 +36,7 @@ achievement.frpg.explosionFromGrassBlock=Grass Block Explosion
 achievement.frpg.explosionFromGrassBlock.desc=Make an explosion of grass block by the click
 
 entity.GoldenChicken.name=Golden Chicken
+
+item.bigPowerPill.name=Big Power Pill
+
+item.biao.name=Biao

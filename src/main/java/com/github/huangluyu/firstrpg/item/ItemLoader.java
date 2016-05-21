@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -34,6 +35,9 @@ public class ItemLoader
     public static ItemArmor redstoneLeggings = new ItemRedstoneArmor.Leggings();
     public static ItemArmor redstoneBoots = new ItemRedstoneArmor.Boots();
     
+    public static ItemFood bigPowerPill = new ItemBigPowerPill();
+    public static Item biao = new ItemBiao();
+    
     public ItemLoader(FMLPreInitializationEvent event)
     {
         register(money, "money");
@@ -44,6 +48,9 @@ public class ItemLoader
         register(redstoneChestplate, "redstone_chestplate");
         register(redstoneLeggings, "redstone_leggings");
         register(redstoneBoots, "redstone_boots");
+        
+        register(bigPowerPill, "big_power_pill");
+        register(biao, "biao");
     }
 
     @SideOnly(Side.CLIENT)
@@ -57,6 +64,9 @@ public class ItemLoader
         registerRender(redstoneChestplate);
         registerRender(redstoneLeggings);
         registerRender(redstoneBoots);
+        
+        registerRender(bigPowerPill);
+        registerRender(biao);
     }
     
     private static void register(Item item, String name)

@@ -20,28 +20,33 @@ public class RenderGoldenChicken extends RenderLiving
     private static final ResourceLocation GOLDEN_CHICKEN_TEXTURE = new ResourceLocation(
             FirstRpg.MODID + ":" + "textures/entity/golden_chicken.png");
 
+    //
     public RenderGoldenChicken(RenderManager renderManager)
     {
         super(renderManager, new ModelGoldenChicken(), 0.5F);
     }
 
+    //调整鸡的大小
     protected void preRenderCallbackGoldenChicken(EntityGoldenChicken entity, float partialTickTime)
     {
         GlStateManager.scale(2.5F, 2.5F, 2.5F);
     }
 
+    //
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float partialTickTime)
     {
         this.preRenderCallbackGoldenChicken((EntityGoldenChicken) entity, partialTickTime);
     }
 
+    //获取金鸡的模型
     @Override
     protected ResourceLocation getEntityTexture(Entity entity)
     {
         return RenderGoldenChicken.GOLDEN_CHICKEN_TEXTURE;
     }
 
+    //
     @Override
     public void doRender(EntityLiving entity, double x, double y, double z, float entityYaw, float partialTicks)
     {

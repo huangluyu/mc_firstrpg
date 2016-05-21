@@ -36,3 +36,7 @@ achievement.frpg.explosionFromGrassBlock=草块爆炸
 achievement.frpg.explosionFromGrassBlock.desc=通过点击草块使草块爆炸
 
 entity.GoldenChicken.name=金鸡
+
+item.bigPowerPill.name=大力丸
+
+item.biao.name=唐门飞镖

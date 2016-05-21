@@ -23,6 +23,9 @@ public class EntityLoader
         registerEntityEgg(EntityGoldenChicken.class, 0xffff66, 0x660000);
         registerEntitySpawn(EntityGoldenChicken.class, 8, 2, 4, EnumCreatureType.CREATURE, BiomeGenBase.plains,
                 BiomeGenBase.desert);
+        
+        registerEntity(EntityBiao.class, "Biao", 80, 3, true);
+        
     }
 
     //×¢²áÊµÌå
