@@ -4,11 +4,13 @@ import com.github.huangluyu.firstrpg.creativetab.CreativeTabsLoader;
 import com.github.huangluyu.firstrpg.entity.EntityBiao;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class ItemBiao extends Item
@@ -36,12 +38,26 @@ public class ItemBiao extends Item
     	//飞行音效
         worldIn.playSoundAtEntity(playerIn, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-        //客户端判定,客户端为1
+        //发射雪球
         if (!worldIn.isRemote)
         {
-            worldIn.spawnEntityInWorld(new EntityBiao(worldIn, playerIn));
+        	worldIn.spawnEntityInWorld(new EntityBiao(worldIn, playerIn, 5));
+//        	worldIn.spawnEntityInWorld(new EntitySnowball(worldIn, 5, 70, 5));
         }
 
+        //发射TNT
+//        if(!worldIn.isRemote)
+//        {
+//        EntityTNTPrimed entity = new EntityTNTPrimed(worldIn, playerIn.posX, playerIn.posY + playerIn.getEyeHeight(), playerIn.posZ, playerIn);//getEyeHeight方法是获取物体的"眼高",即头部到脚底的距离
+//        float angle = (playerIn.rotationYaw/ 180F) * 3.141593F; //水平方向的角度
+//        float angle2 = (-playerIn.rotationPitch/ 180F) * 3.141593F; //垂直方向的仰角
+//        final float speed = 5f; //TNT飞行速度 - 抱歉我卖了个萌
+//        entity.motionY = speed * MathHelper.sin(angle2); //算出三个方向上的速度,为了方便阅读我先计算的Y轴分速度
+//        entity.motionX = speed * MathHelper.cos(angle2) * -MathHelper.sin(angle); //根据仰角算出速度在XZ平面上的投影,再正交分解投影
+//        entity.motionZ = speed * MathHelper.cos(angle2) * MathHelper.cos(angle);
+//        worldIn.spawnEntityInWorld(entity); //放置实体咯
+//        }
+        
         //成就
         playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
         return itemStackIn;

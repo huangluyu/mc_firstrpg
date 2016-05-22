@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -13,12 +14,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderBiao extends RenderSnowball
 {
-    private static final String __OBFID = "CL_00002430";
+    public RenderBiao(RenderManager p_i46137_1_, Item p_i46137_2_,
+			RenderItem p_i46137_3_) {
+		super(p_i46137_1_, p_i46137_2_, p_i46137_3_);
+		// TODO Auto-generated constructor stub
+	}
 
-    public RenderBiao(RenderManager p_i46136_1_, RenderItem p_i46136_2_)
-    {
-        super(p_i46136_1_, Items.potionitem, p_i46136_2_);
-    }
+	private static final String __OBFID = "CL_00002430";
 
     public ItemStack func_177085_a(EntityPotion p_177085_1_)
     {

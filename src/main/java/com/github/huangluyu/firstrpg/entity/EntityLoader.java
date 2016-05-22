@@ -1,13 +1,18 @@
 package com.github.huangluyu.firstrpg.entity;
 
 import com.github.huangluyu.firstrpg.FirstRpg;
+import com.github.huangluyu.firstrpg.client.entity.render.RenderBiao;
 import com.github.huangluyu.firstrpg.client.entity.render.RenderGoldenChicken;
+import com.github.huangluyu.firstrpg.item.ItemBiao;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.item.Item;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -17,6 +22,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityLoader
 {
+	public static Item itemBiao = new ItemBiao();
+	
     public EntityLoader()
     {
         registerEntity(EntityGoldenChicken.class, "GoldenChicken", 80, 3, true);
@@ -25,6 +32,7 @@ public class EntityLoader
                 BiomeGenBase.desert);
         
         registerEntity(EntityBiao.class, "Biao", 80, 3, true);
+        
         
     }
 
@@ -39,7 +47,7 @@ public class EntityLoader
                 sendsVelocityUpdates);
     }
     
-    //×¢²áµ°?
+    //×¢²á¹ÖÎïµ°
     public static void registerEntityEgg(Class<? extends Entity> entityClass, int eggPrimary, int eggSecondary)
     {
         EntityRegistry.registerEgg(entityClass, eggPrimary, eggSecondary);
