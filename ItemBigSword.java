@@ -162,7 +162,7 @@ public class ItemBigSword extends Item{
     		list1 = player.worldObj.getEntitiesWithinAABBExcludingEntity(entity, new AxisAlignedBB(x-1, y+n-2, z+2, x-1, y+n+2, z-2));
     		list.addAll(list1);  		
     		list.addAll(list2);
-    		list.addAll(list3);
+    		list.addAll(list3);a
     		
     		player.addChatMessage(new ChatComponentTranslation("Î÷!%s%s%sÊýÁ¿:%s", list1.size(), list2.size(), list3.size(), list.size()));
     		
