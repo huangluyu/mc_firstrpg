@@ -37,6 +37,8 @@ public class ItemLoader
     
     public static ItemFood bigPowerPill = new ItemBigPowerPill();
     public static Item biao = new ItemBiao();
+    public static Item bigSword = new ItemBigSword();
+    
     
     public ItemLoader(FMLPreInitializationEvent event)
     {
@@ -51,6 +53,7 @@ public class ItemLoader
         
         register(bigPowerPill, "big_power_pill");
         register(biao, "biao");
+        register(bigSword, "big_sword");
     }
 
     @SideOnly(Side.CLIENT)
@@ -67,6 +70,7 @@ public class ItemLoader
         
         registerRender(bigPowerPill);
         registerRender(biao);
+        registerRender(bigSword);
     }
     
     private static void register(Item item, String name)
